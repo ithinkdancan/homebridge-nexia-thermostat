@@ -172,7 +172,8 @@ NexiaThermostat.prototype = {
   			if (!err && response.statusCode == 200) {
   				var data = JSON.parse(body);
           var currentHeatSetPoint = data.result._links.child[0].data.items[this.thermostatIndex].zones[0].setpoints.heat;
-          coolSetPoint = value * 1.8000 + 32.00;
+		  coolSetPoint = value * 1.8000 + 32.00;
+		  this.log("data", JSON.stringify(data.result._links.child[0].data.items[this.thermostatIndex],null,2));
           var postUrl = data.result._links.child[0].data.items[this.thermostatIndex].features[0].actions.set_heat_setpoint.href;
           this.setSetPoints(postUrl, currentHeatSetPoint, coolSetPoint, callback);
   			} else {
