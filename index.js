@@ -164,7 +164,6 @@ NexiaThermostat.prototype = {
 	},
   setCoolingThresholdTemperature: function(value, callback) {
     this.log("setCoolingThresholdTemperature to " + value);
-    callback(null);
     request.get({
         url: this.apiroute + "houses/" + this.houseId,
         headers: {"Content-Type": "application/json", "X-MobileId": this.xMobileId, "X-ApiKey": this.xApiKey}
@@ -202,7 +201,6 @@ NexiaThermostat.prototype = {
 	},
   setHeatingThresholdTemperature: function(value, callback) {
     this.log("setHeatingThresholdTemperature to " + value);
-    callback(null);
     request.get({
         url: this.apiroute + "houses/" + this.houseId,
         headers: {"Content-Type": "application/json", "X-MobileId": this.xMobileId, "X-ApiKey": this.xApiKey}
